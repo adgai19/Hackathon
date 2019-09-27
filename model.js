@@ -2,24 +2,24 @@
 // contactModel.js
 var mongoose = require('mongoose');
 // Setup schema
-var contactSchema = mongoose.Schema({
-    name: {
-        type: String,
+var dbSchema = mongoose.Schema({
+    locationlat: {
+        type: Double,
         required: true
     },
-    email: {
-        type: String,
+    locationlog: {
+        type: Double,
         required: true
     },
-    gender: String,
-    phone: String,
+    imageurl: String,
+    locality: String,
     create_date: {
         type: Date,
         default: Date.now
     }
 });
 // Export Contact model
-var Contact = module.exports = mongoose.model('contact', contactSchema);
+var Db = module.exports = mongoose.model('db', dbSchema);
 module.exports.get = function (callback, limit) {
-    Contact.find(callback).limit(limit);
+    Db.find(callback).limit(limit);
 }
