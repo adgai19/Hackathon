@@ -70,7 +70,7 @@ function onTakePhotoButtonClick() {
   .catch(error => console.log(error));
 }
 //-----------END OF API INITIALISATION--------------------------
-
+//Transfer the above image bitmap and use the url as imagepath
 //the Above Latitude and logitude are calucated put them in the below object elemetns
 const dbschema=Mongoose.Schema(
     {
@@ -79,6 +79,6 @@ const dbschema=Mongoose.Schema(
             logitude:SchemaTypes.Double
         },
         imagepath:String,
-        locality:String
+       /* locality:String //Locality is found while geolocate don't require */
 })
 module.exports=Mongoose.model("db",dbschema);
