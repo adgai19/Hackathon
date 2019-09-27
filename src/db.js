@@ -1,7 +1,11 @@
 const Mongoose=require('mongoose');
 require('mongoose-double')(Mongoose);
 var SchemaTypes = Mongoose.Schema.Types;
-
+/* HTML Code
+<button id = "find-me">Click Picture</button><br/>
+<p id = "status"></p>
+<a id = "map-link" target="_blank"></a>
+*/
 function geoFindMe() {
 
     const status = document.querySelector('#status');
