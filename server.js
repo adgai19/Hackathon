@@ -19,7 +19,16 @@ app.use(dbroutes);
 // let plainTextParser = require('plainTextParser');
 // app.use(plainTextParser());
 //---------------------------------------------------
-mongos.connect('localhost:27017', { useNewUrlParser: true },()=>console.log("mongoose connected"));
+
+
+const multer=require('multer');
+const image=multer({
+        dest:'images'
+})
+app.post('/upload',image.single('upload'),(req,res)=>{
+        res.send("file recieved");
+})
+//mongos.connect('localhost:27017/hack', { useNewUrlParser: true },()=>console.log("mongoose connected"));
 //app.use(express.static('public'));
 port=4000;
 app.listen(port,()=>console.log("server running at "+port));

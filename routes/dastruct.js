@@ -6,6 +6,7 @@ router.get("/", (req, res) => {
         res.send('hello world')
 }
 )
+let entries=[];
 // module.exports=router;
 router.route('/entry')
 .post(function(req,res){
@@ -21,19 +22,27 @@ router.route('/entry')
         test=JSON.parse(chunk);
         console.log(test.imagepath);
          //just show in console
-         const newentry = new dbStruct({
-                 location:test.location,
-                 locality:test.locality,
-                 imagepath:test.imagepath,
+        //  const newentry = new dbStruct({
+        //          location:test.location,
+        //          locality:test.locality,
+        //          imagepath:test.imagepath,
                  
-         });
-         newentry.save().then(data=>{
-                 res.json(data);
-         }).catch(err=>{
-                 rest.json({message:error})
-         })
-
-         console.log(newentry);
+        //  });
+        //  console.log(newentry+"hello");
+        //  newentry.save((err,entry)=>{
+        //          if(err) console.log(err);
+        //          else
+        //          console.log(entry+"123");
+        //  });
+        //  /* newentry.save().then(data=>{
+        //          res.json(data);
+        //          console.log("saving");
+        //  }).catch(err=>{
+        //          rest.json({message:error})
+        //  }) */
+        entries=entries.concat(test);
+        console.log(entries+"added");
+        //  console.log(newentry);
     });
 
     res.send("entry recieved");
@@ -43,13 +52,14 @@ router.route('/entry')
 router.get('/getpost', (req,rec)=>{
         console.log("sending posts");
         
-                dbStruct.find((err,posts)=>{
-                        if(err) return console.error(err);
-                        console.log(posts);
-                })
+                // dbStruct.find((err,posts)=>{
+                //         if(err) return console.error(err);
+                //         console.log(posts);
+                //         rec.send(posts);
+                // });
                         
                // posts=JSON.parse(posts);
-               
+               rec.send(entries);
                 console.log("posts sent");
         
 })
