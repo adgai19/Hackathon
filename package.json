@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -11,7 +12,8 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
-    "mongoose": "^5.3.4"
+    "mongoose": "^5.3.4",
+    "nodemon": "^1.19.2"
   },
   "devDependencies": {},
   "repository": {
@@ -22,5 +24,6 @@
     "url": "https://github.com/adgai19/Hackathon/issues"
   },
   "homepage": "https://github.com/adgai19/Hackathon#readme",
-  "description": ""
+  "description": "",
+  "keywords": []
 }
